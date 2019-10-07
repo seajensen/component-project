@@ -8,7 +8,9 @@
     </div>
     <div style="background-color: rgb(221, 221, 221);" v-if="infoToggle">
         <p>Type(s): {{pkmonType}}</p>
+        <v-divider></v-divider>
         <p>Height: {{pkmonHeight}}</p>
+        <v-divider></v-divider>
         <p>Weight: {{pkmonWeight}}</p>
     </div>
 </div>
