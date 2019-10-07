@@ -1,47 +1,41 @@
 <template>
-<div id="box">
-    <h1 id="h1test">---</h1>
-    <v-select label="Pokémon 1" :items="pkmonlist">Hi</v-select>
-    <v-select label="Pokémon 2"></v-select>
-    <v-btn id="match-btn">MATCH</v-btn>
+<div id="dex-box">
+    <div v-for="pkmon in pkmon" :key="pkmon.name">
+    <pk-comp :pkmon="pkmon"></pk-comp>
+    </div>
 </div>
 </template>
 
-<style>
-#box {
+
+<script>
+import PkComp from './PkComp';
+
+export default {
+  props: ["pkmon"],
+  components: {
+      PkComp
+  }
+};
+</script>
+
+
+<style scoped>
+#dex-box {
+    background-color: white;
     width: 500px;
-    height: 400px;
-    color: black;
-    background-color: rgb(255, 255, 255);
+    padding-bottom: 15px;
     margin: auto;
+    margin-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
-#h1test {
-    color: black;
+#dex-box img {
+    margin-bottom: -1000px;
 }
-#match-btn {
+.pkBtn {
     background-color: red;
-    color: white;
-    margin-left: 41%;
-    margin-right: 41%;
-    width: 18%;
 }
 </style>
 
 
-<script>
-import {pkmon} from '../assets/pkmon.js'
-
-export default {
-  data: () => ({
-    name: "Sean",
-    pkmonlist: [],
-  }),
-  methods: {
-      pkarray: function() {
-          for (i = 0; i < pkmon.length; i++) {
-            this.pkmonlist.shift(pkmon[i].name);
-        }
-      }
-  },
-};
-</script>

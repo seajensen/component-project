@@ -3,14 +3,32 @@
 <div id="right-side">
     <div id="header-div">
         <img id="icon" src="../assets/pokeball.png">
-        <h1>PokéMatch</h1>
+        <h1 id="h1Title">PokéDex</h1>
     </div>
     <v-content>
-        <PkBox/>
+        <pk-box :pkmon="pkmon"></pk-box>
     </v-content>
+
+<v-footer id="footer-div">
+    <p>Made for educational purposes.</p>
+</v-footer>
 </div>
 </body>
 </template>
+
+<script>
+import PkBox from './PkBox';
+
+export default {
+  props: ["pkmon"],
+  data: () => ({
+    name: "Sean",
+  }),
+  components: {
+      PkBox,
+  }
+};
+</script>
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Bowlby+One&display=swap');
@@ -28,7 +46,10 @@ h1 {
     font-size: 60pt;
     text-align: center;
     margin: auto;
+}
+#h1Title {
     margin-top: -1px;
+    padding-right: 100px;
     padding-top: 40px;
 }
 #right-side {
@@ -40,18 +61,13 @@ h1 {
     width: 200px;
     margin-left: -100px;
 }
+#footer-div {
+    height: 30px;
+    margin-bottom: 0px;
+    color: grey;
+    background-color: white;
+}
 </style>
 
 
-<script>
-import PkBox from './PkBox';
 
-export default {
-  data: () => ({
-    name: "Sean",
-  }),
-  components: {
-      PkBox,
-  }
-};
-</script>

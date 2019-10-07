@@ -1,23 +1,26 @@
 <template>
   <v-app>
     <v-content>
-      <layout/>
+      <layout :pkmon="pkmon"/>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-import Layout from './components/Layout';
+import layout from './components/Layout';
+import { pkmon } from './assets/pkmon.js'
+
+console.log(pkmon.name)
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-    Layout,
+    layout,
   },
-  data: () => ({
-    //
-  }),
+  data: () => {
+    return {
+      pkmon: pkmon,
+    }
+  },
 };
 </script>
